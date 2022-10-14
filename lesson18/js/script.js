@@ -28,6 +28,14 @@ removeDoneTaskBtn.addEventListener('click', function(e) {
 
 function displayMessage() {
     let displayMessage = '';
+
+    if (todoList.length == 0) {
+        displayMessage = `<li id="emptyList" class="list-group-item empty-list ">
+        <img src="./img/leaf.svg" alt="Empty" width="48" class="mt-3">
+        <div class="empty-list__title">Список дел пуст</div>
+    </li>`
+    }
+
     todoList.forEach(function(item, i) {
         const isDone = item.done == true ? 'task-title--done' : '';
         displayMessage += `
@@ -44,6 +52,7 @@ function displayMessage() {
         </li>
         `;
     });
+
     todoWrapper.innerHTML = displayMessage;
 };
 
